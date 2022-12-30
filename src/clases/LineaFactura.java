@@ -3,7 +3,13 @@ package clases;
 public class LineaFactura {
 	
 	private int numero;
-	private String Articulo;
+	private Articulo Articulo;
+	public Articulo getArticulo() {
+		return Articulo;
+	}
+	public void setArticulo(Articulo articulo) {
+		Articulo = articulo;
+	}
 	private int cantidad;
 	
 	public int getNumero() {
