@@ -57,6 +57,7 @@ public class Factura {
 	}
 	
 	public void addLinea() {
+		
 	}
 	
 	public void eliminarLinea(int numeroLinea) {
@@ -64,9 +65,7 @@ public class Factura {
 	}
 	
 	public double precioTotal() {
-		
-		
-		
+
 		return 0;
 	}
 	

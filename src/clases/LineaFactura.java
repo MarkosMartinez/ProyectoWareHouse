@@ -1,7 +1,6 @@
 package clases;
 
 public class LineaFactura {
-	
 	private int numero;
 	private Articulo Articulo;
 	public Articulo getArticulo() {
