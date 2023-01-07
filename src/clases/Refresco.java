@@ -8,7 +8,16 @@ public class Refresco extends Articulo {
 	private int cantidadAzucar;
 	
 	public Refresco() {
-//		super();
+    	super();
+	}
+	
+	public Refresco(String code, String name,String mark, String sabor, boolean zumo, boolean gaseoso, int cantidadAzucar, int capacidadBotella, double precio, int stock) {
+		super(code, name, mark, capacidadBotella, precio, stock);
+		
+		this.sabor = sabor;
+		this.zumo = zumo;
+		this.gaseoso = gaseoso;
+		this.cantidadAzucar = cantidadAzucar;
 	}
 	
 	public String getSabor() {
