@@ -66,5 +66,17 @@ public class Vino extends Articulo implements Alcoholico {
 		return false;
 	}
 
+	@Override
+	public boolean esFuerte() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public double calcularTasa() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 
 }
