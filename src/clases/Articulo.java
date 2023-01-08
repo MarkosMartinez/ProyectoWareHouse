@@ -76,16 +76,23 @@ public Articulo() {
 	}
 	
 	public void disminuirStock(int cantidad) {
-		if (cantidad <= this.stock) {
+		if (cantidad >= this.stock) {
 			this.stock -= cantidad;
 		}else {
 			System.out.println("Error no se puede disminuir mas el Stock.");
 		}
 	}
 	
+
+	
 	public abstract void visualizarArticulo();
-	public abstract void precioTotal();
 	public abstract boolean esSaludable();
+	public abstract void precioTotal();
+	
+	@Override
+	public String toString() {
+		return "Codigo: " + code + ", Nombre: " + name + ", Marca: " + mark + ", Capacidad de la Botella: " + capacidadBotella + ", Precio: " + precio + " y Stock: " + stock;
+	}
 	
 	
 	
