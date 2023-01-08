@@ -27,10 +27,10 @@ public class Almacen {
 			}else if(linea[0].toLowerCase().equals("vino")) {
 				Vino vino = new Vino(linea[0], linea[1], linea[2], linea[3], Integer.parseInt(linea[4]), Double.parseDouble(linea[5]), Integer.parseInt(linea[6]), linea[7], linea[8], Integer.parseInt(linea[9]), linea[10], Double.parseDouble(linea[11])); 
 				articulos.add(vino);
+			}else if(linea[0].toLowerCase().equals("cerveza")) {
+				Cerveza cerveza = new Cerveza(linea[0], linea[1], linea[2], linea[3], Integer.parseInt(linea[4]), Double.parseDouble(linea[5]), Integer.parseInt(linea[6]), linea[7], linea[8], Double.parseDouble(linea[9]));
+				articulos.add(cerveza);
 			}
-		
-			
-			
 		}
 	}
 	
