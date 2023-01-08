@@ -2,3 +2,6 @@
 refresco;01;fanta naranja;fanta;33;0.60;50;naranja;true;true;28.1
 
 // Vinos: tipo;code;nombre;marca;capacidad(cl);precio;stock;color;origen;año;tipoDeUva;gradosAlcohol
+vino;10;Vino tinto Lindes;Remelluri;75;15.50;29;cereza picota;Rioja;2018;tintas;14
+
+//Cervezas: tipo;code;nombre;marca;capacidad(cl);precio;stock;origen;cereales;gradosAlcohol

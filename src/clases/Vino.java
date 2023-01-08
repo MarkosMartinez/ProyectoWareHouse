@@ -62,6 +62,8 @@ public class Vino extends Articulo implements Alcoholico {
 		this.gradosAlcohol = gradosAlcohol;
 	}
 
+	
+	
 	@Override
 	public void visualizarArticulo() {
 		// TODO Auto-generated method stub
