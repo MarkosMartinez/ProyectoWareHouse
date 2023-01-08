@@ -43,34 +43,53 @@ public class Cerveza extends Articulo implements Alcoholico {
 
 	@Override
 	public boolean esFuerte() {
-		// TODO Auto-generated method stub
-		return false;
+		boolean fuerte = false;
+		if(this.gradosAlcohol >= 7){
+			fuerte = true;
+		}
+		return fuerte;
 	}
 
 	
 	
 	@Override
 	public double calcularTasa() {
-		// TODO Auto-generated method stub
-		return 0;
+		double tasa;
+		if(this.esFuerte()) {
+			tasa=TASA_BEBIDAS_FUERTES;
+		}
+		else {
+			tasa=TASA_BEBIDAS_SUABES;
+		}
+		return tasa;
+	}
+
+	@Override
+	public String toString() {
+		return "Datos de la Cerveza:\nOrigen: " + origen + "\n Cereales: " + cereales + "\nGrados de alcohol: " + gradosAlcohol + "\n" + super.toString();
 	}
 
 	@Override
 	public void visualizarArticulo() {
-		// TODO Auto-generated method stub
+		System.out.println(super.toString()); //this o super?
 		
 	}
 
 	@Override
 	public void precioTotal() {
-		// TODO Auto-generated method stub
-		
+		int stock = this.getStock();
+		double precio = this.getPrecio();
+		double total = stock * precio;
+		System.out.println("El precio de todas las cervezas es: "+ total);
 	}
 
 	@Override
 	public boolean esSaludable() {
-		// TODO Auto-generated method stub
-		return false;
+		boolean saludable = false;
+		if(this.gradosAlcohol <= 8){
+			saludable = true;
+		}
+		return saludable;
 	}
 
 }

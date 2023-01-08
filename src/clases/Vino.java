@@ -63,35 +63,53 @@ public class Vino extends Articulo implements Alcoholico {
 	}
 
 	
+	@Override
+	public String toString() {
+		return "Datos del Vino:\nColor: " + color + "\nOrigen: " + origen + "\nAño: " + anio + "\nTipo de Uva: " + tipoDeUva + "\nGrados de Alcohol: " + gradosAlcohol + "\n" + super.toString();
+	}
 	
 	@Override
 	public void visualizarArticulo() {
 		// TODO Auto-generated method stub
-		
+		System.out.println(this.toString()); //this o Super?
 	}
 
 	@Override
 	public void precioTotal() {
-		// TODO Auto-generated method stub
-		
+		int stock = this.getStock();
+		double precio = this.getPrecio();
+		double total = stock * precio;
+		System.out.println("El precio de todas las cervezas es: "+ total);
 	}
 
 	@Override
 	public boolean esSaludable() {
-		// TODO Auto-generated method stub
-		return false;
+		boolean saludable = false;
+		if((this.origen.toLowerCase().equals("rioja")) && this.gradosAlcohol <= 18) {
+			saludable = true;
+		}
+		return saludable;
 	}
 
 	@Override
 	public boolean esFuerte() {
-		// TODO Auto-generated method stub
-		return false;
+		boolean fuerte = false;
+		if(this.gradosAlcohol >= 14){
+			fuerte = true;
+		}
+		return fuerte;
 	}
 
 	@Override
 	public double calcularTasa() {
-		// TODO Auto-generated method stub
-		return 0;
+		double tasa;
+		if(this.esFuerte()) {
+			tasa=TASA_BEBIDAS_FUERTES;
+		}
+		else {
+			tasa=TASA_BEBIDAS_SUABES;
+		}
+		return tasa;
 	}
 
 

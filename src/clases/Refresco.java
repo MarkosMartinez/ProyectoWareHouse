@@ -56,7 +56,7 @@ public class Refresco extends Articulo {
 
 	@Override
 	public void visualizarArticulo() {
-		System.out.println(toString()); //this.toSting()?
+		System.out.println(this.toString()); //this o super?
 	}
 
 	@Override
@@ -82,7 +82,7 @@ public class Refresco extends Articulo {
 	
 	@Override
 	public String toString() {
-		return "Datos del Refresco:\nSabor: " + sabor + "\nZumo: " + zumo + "\nGaseoso: " + gaseoso + "\nCantidad de azucar: " + cantidadAzucar+","+ super.toString();
+		return "Datos del Refresco:\nSabor: " + sabor + "\nZumo: " + zumo + "\nGaseoso: " + gaseoso + "\nCantidad de azucar: " + cantidadAzucar + "\n" + super.toString();
 	}
 	
 

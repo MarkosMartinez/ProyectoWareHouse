@@ -43,7 +43,7 @@ public class Factura {
 	public Date getFecha() {
 		return fecha;
 	}
-
+	
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
@@ -55,6 +55,8 @@ public class Factura {
 	public void setConcepto(String concepto) {
 		this.concepto = concepto;
 	}
+	
+	
 	
 	public void addLinea() {
 		
