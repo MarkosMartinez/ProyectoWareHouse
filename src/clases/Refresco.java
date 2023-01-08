@@ -52,28 +52,37 @@ public class Refresco extends Articulo {
 		this.cantidadAzucar = cantidadAzucar;
 	}
 
-
+	
 
 	@Override
 	public void visualizarArticulo() {
-		// TODO Auto-generated method stub
-		
+		System.out.println(toString()); //this.toSting()?
 	}
 
 	@Override
 	public void precioTotal() {
-		// TODO Auto-generated method stub
-		
+		int stock = this.getStock();
+		double precio = this.getPrecio();
+		double total = stock * precio;
+		System.out.println("El precio de todos los refrescos es: "+ total);
 	}
 
 	@Override
 	public boolean esSaludable() {
-		// TODO Auto-generated method stub
-		return false;
+		boolean saludable = false;
+		if(cantidadAzucar < 20) {
+			saludable = true;
+		}
+		return saludable;
 	}
 	
 	public void visualizarPropiedades() {
-		//sysout
+		System.out.println("Sabor: " + sabor + ", Zumo: " + zumo + ", Gaseoso: " + gaseoso + ", Cantidad de azucar: " + cantidadAzucar);
+	}
+	
+	@Override
+	public String toString() {
+		return "Datos del Refresco:\nSabor: " + sabor + "\nZumo: " + zumo + "\nGaseoso: " + gaseoso + "\nCantidad de azucar: " + cantidadAzucar+","+ super.toString();
 	}
 	
 
