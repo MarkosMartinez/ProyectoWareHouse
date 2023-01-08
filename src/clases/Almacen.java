@@ -32,21 +32,50 @@ public class Almacen {
 				articulos.add(cerveza);
 			}
 		}
+		scan.close();
 	}
 	
 	public Articulo elMasCaro() {
+		Articulo precioMaximo = null;
+		double precio = 0;
 		
-		return null;
+		for (Articulo articulo : articulos) {
+			if(articulo.getPrecio()>precio) {
+				precioMaximo = articulo;
+				precio = articulo.getPrecio();
+			}
+		}
+		return precioMaximo;
 	}
 	
-	public double precio(String codigoProducto) {
+	public double precio(String codigoProducto) throws FileNotFoundException {
+		double precio = 0;
+		File file=new File("datos/articulos.txt");
+		Scanner scan = new Scanner(file);
 		
-		return 0;
+		while(scan.hasNextLine()) {
+		String linea[]= scan.nextLine().split(";");
+			if(linea[1] == codigoProducto) {
+			precio= Double.parseDouble(linea[5]);
+			}
+		}
+		scan.close();
+		return precio;
 	}
 	
-	public boolean hayStock(String codigoProducto) {
+	public boolean hayStock(String codigoProducto) throws FileNotFoundException {
+		File file=new File("datos/articulos.txt");
+		Scanner scan = new Scanner(file);
+		boolean stock = false;
 		
-		return false;
+		while(scan.hasNextLine()) {
+		String linea[]= scan.nextLine().split(";");
+			if((linea[1] == codigoProducto) && (Integer.parseInt(linea[6]) > 0)) {
+			stock = true;
+			}
+		}
+		scan.close();
+		return stock;
 	}
 	
 	public ArrayList<Articulo> stockJusto(){

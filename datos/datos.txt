@@ -1,7 +1,8 @@
 // Refrescos: tipo;code;nombre;marca;capacidad(cl);precio;stock;sabor;zumo;gaseoso;cantazucar
-refresco;01;fanta naranja;fanta;33;0.60;50;naranja;true;true;28.1
+refresco;01;Fanta Naranja;Fanta;33;0.60;50;naranja;true;true;28.1
 
 // Vinos: tipo;code;nombre;marca;capacidad(cl);precio;stock;color;origen;año;tipoDeUva;gradosAlcohol
 vino;10;Vino tinto Lindes;Remelluri;75;15.50;29;cereza picota;Rioja;2018;tintas;14
 
 //Cervezas: tipo;code;nombre;marca;capacidad(cl);precio;stock;origen;cereales;gradosAlcohol
+cerveza;20;Estrella Galicia Especial; Estrella Galicia;33;0.82;14;Galicia;cebada y malta;5.5
