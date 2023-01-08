@@ -21,9 +21,12 @@ public class Almacen {
 		
 		while(scan.hasNextLine()) {
 			String linea[]= scan.nextLine().split(";");
-			if(linea[1].toLowerCase() == "refresco") {
+			if(linea[0].toLowerCase().equals("refresco")) {
 				Refresco refresco = new Refresco(linea[0], linea[1], linea[2], linea[3], Integer.parseInt(linea[4]), Double.parseDouble(linea[5]), Integer.parseInt(linea[6]), linea[7], Boolean.parseBoolean(linea[8]), Boolean.parseBoolean(linea[9]), Integer.parseInt(linea[10]));	
 				articulos.add(refresco);
+			}else if(linea[0].toLowerCase().equals("vino")) {
+				Vino vino = new Vino(linea[0], linea[1], linea[2], linea[3], Integer.parseInt(linea[4]), Double.parseDouble(linea[5]), Integer.parseInt(linea[6]), linea[7], linea[8], Integer.parseInt(linea[9]), linea[10], Double.parseDouble(linea[11])); 
+				articulos.add(vino);
 			}
 		
 			
