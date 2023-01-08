@@ -7,13 +7,13 @@ public class Refresco extends Articulo {
 	private boolean gaseoso;
 	private int cantidadAzucar;
 	
-	public Refresco() {
+	/*public Refresco() {
     	super();
-	}
+	}*/
 	
-	public Refresco(String code, String name,String mark, String sabor, boolean zumo, boolean gaseoso, int cantidadAzucar, int capacidadBotella, double precio, int stock) {
-		super(code, name, mark, capacidadBotella, precio, stock);
-		
+	public Refresco(String tipo, String code, String name, String mark, int capacidadBotella,
+			double precio, int stock, String sabor, boolean zumo, boolean gaseoso, int cantidadAzucar) {
+		super(code, name, mark, capacidadBotella, precio, stock);	
 		this.sabor = sabor;
 		this.zumo = zumo;
 		this.gaseoso = gaseoso;

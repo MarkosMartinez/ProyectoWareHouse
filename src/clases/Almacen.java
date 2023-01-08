@@ -21,13 +21,8 @@ public class Almacen {
 		
 		while(scan.hasNextLine()) {
 			String linea[]= scan.nextLine().split(";");
-			if(Integer.parseInt(linea[0]) <= 9) {
-				
-				Refresco refresco = new Refresco(linea[1], linea[2], linea[3], linea[4],
-						Boolean.parseBoolean(linea[5]), Boolean.parseBoolean(linea[6]),
-						Integer.parseInt(linea[7]), Integer.parseInt(linea[8]),
-						Double.parseDouble(linea[9]), Integer.parseInt(linea[10]));
-				
+			if(linea[1].toLowerCase() == "refresco") {
+				Refresco refresco = new Refresco(linea[0], linea[1], linea[2], linea[3], Integer.parseInt(linea[4]), Double.parseDouble(linea[5]), Integer.parseInt(linea[6]), linea[7], Boolean.parseBoolean(linea[8]), Boolean.parseBoolean(linea[9]), Integer.parseInt(linea[10]));	
 				articulos.add(refresco);
 			}
 		
