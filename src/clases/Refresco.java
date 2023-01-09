@@ -3,13 +3,14 @@ package clases;
 public class Refresco extends Articulo {
 	
 	private String sabor;
+	/*Crear tipo?*/
 	private boolean zumo;
 	private boolean gaseoso;
 	private int cantidadAzucar;
 	
-	/*public Refresco() {
+	public Refresco() {
     	super();
-	}*/
+	}
 	
 	public Refresco(String tipo, String code, String name, String mark, int capacidadBotella,
 			double precio, int stock, String sabor, boolean zumo, boolean gaseoso, int cantidadAzucar) {

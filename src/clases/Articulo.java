@@ -12,7 +12,7 @@ public Articulo() {
 	
 }
 	
-	public Articulo(String name, String code, String mark, int capacidadBotella, double precio, int stock) {
+	public Articulo(String code, String name, String mark, int capacidadBotella, double precio, int stock) {
 		this.name = name;
 		this.code = code;
 		this.mark = mark;

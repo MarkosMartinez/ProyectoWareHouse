@@ -41,7 +41,7 @@ public class LineaFactura {
 	
 	
 	public double precioTotal(){
-		double total = 0.0;
+		double total = 0;
 		total = cantidad * articulo.getPrecio();
 		return total;
 	}

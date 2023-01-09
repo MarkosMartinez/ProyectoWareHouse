@@ -70,7 +70,6 @@ public class Vino extends Articulo implements Alcoholico {
 	
 	@Override
 	public void visualizarArticulo() {
-		// TODO Auto-generated method stub
 		System.out.println(this.toString()); //this o Super?
 	}
 
