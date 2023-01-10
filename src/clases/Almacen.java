@@ -26,13 +26,16 @@ public class Almacen {
 			if(linea[0].toLowerCase().equals("refresco")) {
 				Refresco refresco = new Refresco(linea[0], linea[1], linea[2], linea[3], Integer.parseInt(linea[4]), Double.parseDouble(linea[5]), Integer.parseInt(linea[6]), linea[7], Boolean.parseBoolean(linea[8]), Boolean.parseBoolean(linea[9]), Integer.parseInt(linea[10]));	
 				articulos.add(refresco);
+				refresco.visualizarPropiedades();
 				//JOptionPane.showMessageDialog(null, "Code del refresco" + refresco.getCode() + " Nombre del refresco: " + refresco.getName());
 			}else if(linea[0].toLowerCase().equals("vino")) {
 				Vino vino = new Vino(linea[0], linea[1], linea[2], linea[3], Integer.parseInt(linea[4]), Double.parseDouble(linea[5]), Integer.parseInt(linea[6]), linea[7], linea[8], Integer.parseInt(linea[9]), linea[10], Double.parseDouble(linea[11])); 
 				articulos.add(vino);
+				vino.visualizarArticulo();
 			}else if(linea[0].toLowerCase().equals("cerveza")) {
 				Cerveza cerveza = new Cerveza(linea[0], linea[1], linea[2], linea[3], Integer.parseInt(linea[4]), Double.parseDouble(linea[5]), Integer.parseInt(linea[6]), linea[7], linea[8], Double.parseDouble(linea[9]));
 				articulos.add(cerveza);
+				cerveza.visualizarArticulo();
 			}
 		}
 		scan.close();
@@ -108,10 +111,6 @@ public class Almacen {
 	
 	public void ordenarPorStock(String orden) {
 		
-	}
-	
-	public void visualizarArticulo() {
-
 	}
 
 }

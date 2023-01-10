@@ -7,6 +7,8 @@ public abstract class Articulo {
 	protected int capacidadBotella;
 	protected double precio;
 	protected int stock;
+	
+	//protected boolean saludable;
 		
 public Articulo() {
 	
@@ -19,6 +21,7 @@ public Articulo() {
 		this.capacidadBotella = capacidadBotella;
 		this.precio = precio;
 		this.stock = stock;
+		//saludable = esSaludable();
 	}
 
 	public String getCode() {
@@ -91,7 +94,7 @@ public Articulo() {
 	
 	@Override
 	public String toString() {
-		return "Codigo: " + code + ", Nombre: " + name + ", Marca: " + mark + ", Capacidad de la Botella: " + capacidadBotella + ", Precio: " + precio + " y Stock: " + stock;
+		return "Codigo: " + code + "\nNombre: " + name + "\nMarca: " + mark + "\nCapacidad de la Botella: " + capacidadBotella + "\nPrecio: " + precio + "\nStock: " + stock;
 	}
 	
 	

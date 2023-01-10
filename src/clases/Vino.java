@@ -1,5 +1,7 @@
 package clases;
 
+import javax.swing.JOptionPane;
+
 public class Vino extends Articulo implements Alcoholico {
 
 	private String color;
@@ -7,6 +9,8 @@ public class Vino extends Articulo implements Alcoholico {
 	private int anio;
 	private String tipoDeUva;
 	private double gradosAlcohol;
+	
+	private boolean saludable;
 	
 	public Vino() {
 		super();
@@ -20,6 +24,7 @@ public class Vino extends Articulo implements Alcoholico {
 		this.anio = anio;
 		this.tipoDeUva = tipoDeUva;
 		this.gradosAlcohol = gradosAlcohol;
+		this.saludable = esSaludable();
 	}
 	
 	public String getColor() {
@@ -70,7 +75,7 @@ public class Vino extends Articulo implements Alcoholico {
 	
 	@Override
 	public void visualizarArticulo() {
-		System.out.println(this.toString()); //this o Super?
+		JOptionPane.showMessageDialog(null, super.toString() + "\nColor: " + color + "\nOrigen: " + origen + "\nAño: " + anio + "\nTipo de Uva: " + tipoDeUva + "\nGrados de Alcohol: " + gradosAlcohol);
 	}
 
 	@Override

@@ -1,5 +1,7 @@
 package clases;
 
+import javax.swing.JOptionPane;
+
 public class Refresco extends Articulo {
 	
 	private String sabor;
@@ -8,17 +10,20 @@ public class Refresco extends Articulo {
 	private boolean gaseoso;
 	private int cantidadAzucar;
 	
+	private boolean saludable;
+	
 	public Refresco() {
     	super();
 	}
 	
 	public Refresco(String tipo, String code, String name, String mark, int capacidadBotella,
 			double precio, int stock, String sabor, boolean zumo, boolean gaseoso, int cantidadAzucar) {
-		super(code, name, mark, capacidadBotella, precio, stock);	
+		super(code, name, mark, capacidadBotella, precio, stock);
 		this.sabor = sabor;
 		this.zumo = zumo;
 		this.gaseoso = gaseoso;
 		this.cantidadAzucar = cantidadAzucar;
+		saludable = esSaludable();
 	}
 	
 	public String getSabor() {
@@ -78,7 +83,7 @@ public class Refresco extends Articulo {
 	}
 	
 	public void visualizarPropiedades() {
-		System.out.println("Sabor: " + sabor + ", Zumo: " + zumo + ", Gaseoso: " + gaseoso + ", Cantidad de azucar: " + cantidadAzucar);
+		JOptionPane.showMessageDialog(null, super.toString() + "\nSabor: " + sabor + "\nZumo: " + zumo + "\nGaseoso: " + gaseoso + "\nCantidad de azucar: " + cantidadAzucar);
 	}
 	
 	@Override

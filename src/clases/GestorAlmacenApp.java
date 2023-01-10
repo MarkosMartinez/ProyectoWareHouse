@@ -17,6 +17,7 @@ public class GestorAlmacenApp {
 		final int SALIR = 0;
 		
 		Almacen almacen = new Almacen();
+		JOptionPane.showMessageDialog(null, "Estos son todos los elementos de nuestra lista.\nRecuerda memorizarte el codigo del producto si lo quieres comprar!");
 		almacen.cargarDatos();
 
 		Scanner scan = new Scanner(System.in);

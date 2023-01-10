@@ -1,5 +1,7 @@
 package clases;
 
+import javax.swing.JOptionPane;
+
 public class Cerveza extends Articulo implements Alcoholico {
 	private String origen;
 	private String cereales;
@@ -71,7 +73,7 @@ public class Cerveza extends Articulo implements Alcoholico {
 
 	@Override
 	public void visualizarArticulo() {
-		System.out.println(super.toString()); //this o super?
+		JOptionPane.showMessageDialog(null, super.toString() + "\nOrigen: " + origen + "\n Cereales: " + cereales + "\nGrados de alcohol: " + gradosAlcohol);
 		
 	}
 
