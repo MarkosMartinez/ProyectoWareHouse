@@ -10,20 +10,17 @@ public class Refresco extends Articulo {
 	private boolean gaseoso;
 	private int cantidadAzucar;
 	
-	private boolean saludable;
-	
 	public Refresco() {
     	super();
 	}
 	
 	public Refresco(String tipo, String code, String name, String mark, int capacidadBotella,
 			double precio, int stock, String sabor, boolean zumo, boolean gaseoso, int cantidadAzucar) {
-		super(code, name, mark, capacidadBotella, precio, stock);
+		super(tipo, code, name, mark, capacidadBotella, precio, stock);
 		this.sabor = sabor;
 		this.zumo = zumo;
 		this.gaseoso = gaseoso;
 		this.cantidadAzucar = cantidadAzucar;
-		saludable = esSaludable();
 	}
 	
 	public String getSabor() {
@@ -62,7 +59,7 @@ public class Refresco extends Articulo {
 
 	@Override
 	public void visualizarArticulo() {
-		System.out.println(this.toString()); //this o super?
+		JOptionPane.showMessageDialog(null, super.toString() + "\nSabor: " + sabor + "\nZumo: " + zumo + "\nGaseoso: " + gaseoso + "\nCantidad de azucar: " + cantidadAzucar);
 	}
 
 	@Override
@@ -72,23 +69,16 @@ public class Refresco extends Articulo {
 		double total = stock * precio;
 		System.out.println("El precio de todos los refrescos es: "+ total);
 	}
-
-	@Override
-	public boolean esSaludable() {
-		boolean saludable = false;
-		if(cantidadAzucar < 20) {
-			saludable = true;
-		}
-		return saludable;
-	}
-	
-	public void visualizarPropiedades() {
-		JOptionPane.showMessageDialog(null, super.toString() + "\nSabor: " + sabor + "\nZumo: " + zumo + "\nGaseoso: " + gaseoso + "\nCantidad de azucar: " + cantidadAzucar);
-	}
 	
 	@Override
 	public String toString() {
 		return "Datos del Refresco:\nSabor: " + sabor + "\nZumo: " + zumo + "\nGaseoso: " + gaseoso + "\nCantidad de azucar: " + cantidadAzucar + "\n" + super.toString();
+	}
+
+	@Override
+	public boolean saludable() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 

@@ -1,12 +1,13 @@
 package clases;
 
 public abstract class Articulo {
-	protected String code;
-	protected String name;
-	protected String mark;
-	protected int capacidadBotella;
-	protected double precio;
-	protected int stock;
+	private String code;
+	private String name;
+	private String mark;
+	private int capacidadBotella;
+	private double precio;
+	private int stock;
+	private String tipo;
 	
 	//protected boolean saludable;
 		
@@ -14,7 +15,8 @@ public Articulo() {
 	
 }
 	
-	public Articulo(String code, String name, String mark, int capacidadBotella, double precio, int stock) {
+	public Articulo(String tipo, String code, String name, String mark, int capacidadBotella, double precio, int stock) {
+		this.tipo = tipo;
 		this.name = name;
 		this.code = code;
 		this.mark = mark;
@@ -22,6 +24,15 @@ public Articulo() {
 		this.precio = precio;
 		this.stock = stock;
 		//saludable = esSaludable();
+	}
+
+	
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
 	public String getCode() {
@@ -89,7 +100,7 @@ public Articulo() {
 
 	
 	public abstract void visualizarArticulo();
-	public abstract boolean esSaludable();
+	public abstract boolean saludable();
 	public abstract void precioTotal();
 	
 	@Override

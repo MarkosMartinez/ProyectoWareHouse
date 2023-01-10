@@ -13,7 +13,7 @@ public class Cerveza extends Articulo implements Alcoholico {
 	
 	public Cerveza(String tipo, String code, String name, String mark, int capacidadBotella, double precio, int stock,
 			String origen, String cereales, double gradosAlcohol) {
-		super(code, name, mark, capacidadBotella, precio, stock);
+		super(tipo, code, name, mark, capacidadBotella, precio, stock);
 		this.origen = origen;
 		this.cereales = cereales;
 		this.gradosAlcohol = gradosAlcohol;
@@ -86,7 +86,7 @@ public class Cerveza extends Articulo implements Alcoholico {
 	}
 
 	@Override
-	public boolean esSaludable() {
+	public boolean saludable() {
 		boolean saludable = false;
 		if(this.gradosAlcohol <= 8){
 			saludable = true;

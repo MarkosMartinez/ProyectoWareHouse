@@ -64,6 +64,6 @@ public class GestorAlmacenApp {
 
 		} while (opcion_menu != SALIR);
 		
-		
+		scan.close();
 	}
 }

@@ -3,9 +3,8 @@ package clases;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
-
-import javax.swing.JOptionPane;
 
 public class Almacen {
 	
@@ -26,7 +25,7 @@ public class Almacen {
 			if(linea[0].toLowerCase().equals("refresco")) {
 				Refresco refresco = new Refresco(linea[0], linea[1], linea[2], linea[3], Integer.parseInt(linea[4]), Double.parseDouble(linea[5]), Integer.parseInt(linea[6]), linea[7], Boolean.parseBoolean(linea[8]), Boolean.parseBoolean(linea[9]), Integer.parseInt(linea[10]));	
 				articulos.add(refresco);
-				refresco.visualizarPropiedades();
+				refresco.visualizarArticulo();
 				//JOptionPane.showMessageDialog(null, "Code del refresco" + refresco.getCode() + " Nombre del refresco: " + refresco.getName());
 			}else if(linea[0].toLowerCase().equals("vino")) {
 				Vino vino = new Vino(linea[0], linea[1], linea[2], linea[3], Integer.parseInt(linea[4]), Double.parseDouble(linea[5]), Integer.parseInt(linea[6]), linea[7], linea[8], Integer.parseInt(linea[9]), linea[10], Double.parseDouble(linea[11])); 
@@ -85,8 +84,13 @@ public class Almacen {
 	}
 	
 	public ArrayList<Articulo> stockJusto(){
-		
-		return null;
+		ArrayList<Articulo> stockJusto = new ArrayList<Articulo>();
+		for (Articulo articulos : articulos) {
+			if(articulos.getStock()<10) {
+				stockJusto.add(articulos);
+			}
+		}
+		return stockJusto;
 	}
 	
 	public Articulo articulo(String codigoProducto) {
@@ -98,12 +102,26 @@ public class Almacen {
 		
 		return false;
 	}
-	
-	public ArrayList<Articulo> equivalentes(Articulo articulo){
-		
-		return null;
+
+	public ArrayList<Articulo> equivalente(Articulo articulo){
+		ArrayList<Articulo> equivalente=new ArrayList<Articulo>();
+		double diferencias;
+		for(Articulo articulos:articulos) {
+			if(articulos.getTipo() == articulo.getTipo()){
+				if(articulos.getPrecio() > articulo.getPrecio()) {
+					diferencias = articulos.getPrecio() - articulo.getPrecio();
+				}else {
+					diferencias = articulo.getPrecio() - articulos.getPrecio();
+				}
+				if(diferencias <= 0.2 ) {
+					equivalente.add(articulos);
+				}
+			}
+		}
+		return equivalente;
 	}
 	
+
 	public ArrayList<Articulo> ordenarPorPrecio(String orden) {
 		
 		return null;
