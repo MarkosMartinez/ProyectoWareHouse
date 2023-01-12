@@ -68,7 +68,7 @@ public class Cerveza extends Articulo implements Alcoholico {
 
 	@Override
 	public String toString() {
-		return "Datos de la Cerveza:\nOrigen: " + origen + "\n Cereales: " + cereales + "\nGrados de alcohol: " + gradosAlcohol + "\n" + super.toString();
+		return super.getName() + "\nOrigen: " + origen + "\n Cereales: " + cereales + "\nGrados de alcohol: " + gradosAlcohol + "\n" + super.toString();
 	}
 
 	@Override

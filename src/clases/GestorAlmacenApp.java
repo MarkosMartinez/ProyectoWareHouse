@@ -48,7 +48,7 @@ public class GestorAlmacenApp {
 				
 				break;
 			case VERARTMASCARO:
-				JOptionPane.showMessageDialog(null, "Opcion de ver el articulo mas caro seleccionado");
+				JOptionPane.showMessageDialog(null, "El articulo mas caro existente en nuestros almacenes es: " + almacen.elMasCaro());
 				
 				break;
 			case VERARTCONMENOSSTOCK:

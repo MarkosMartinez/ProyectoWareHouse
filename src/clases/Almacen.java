@@ -49,6 +49,14 @@ public class Almacen {
 				precioMaximo = articulo;
 				precio = articulo.getPrecio();
 			}
+			/* Si quieres hacer que si no hay stock no lo muestre
+			if(articulo.getPrecio()>precio) {
+				if(articulo.getStock()>0) {
+				 precioMaximo = articulo;
+				 precio = articulo.getPrecio();
+				}
+			}
+			 * */
 		}
 		return precioMaximo;
 	}

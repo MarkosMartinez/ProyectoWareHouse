@@ -72,7 +72,7 @@ public class Refresco extends Articulo {
 	
 	@Override
 	public String toString() {
-		return "Datos del Refresco:\nSabor: " + sabor + "\nZumo: " + zumo + "\nGaseoso: " + gaseoso + "\nCantidad de azucar: " + cantidadAzucar + "\n" + super.toString();
+		return super.getName() + "\nSabor: " + sabor + "\nZumo: " + zumo + "\nGaseoso: " + gaseoso + "\nCantidad de azucar: " + cantidadAzucar + "\n" + super.toString();
 	}
 
 	@Override
