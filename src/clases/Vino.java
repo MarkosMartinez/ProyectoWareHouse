@@ -86,7 +86,7 @@ public class Vino extends Articulo implements Alcoholico {
 	@Override
 	public boolean saludable() {
 		boolean saludable = false;
-		if((this.origen.toLowerCase().equals("rioja")) && this.gradosAlcohol <= 18) {
+		if((this.origen.toLowerCase().equals("navarra"))) {
 			saludable = true;
 		}
 		return saludable;

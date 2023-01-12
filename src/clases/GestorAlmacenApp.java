@@ -27,7 +27,7 @@ public class GestorAlmacenApp {
 			opcion_menu = Integer.parseInt(JOptionPane.showInputDialog(null," ------ Ware House ------\n" +
 			REALIZAR_VENTA + ". Realizar venta\n" +
 			REALIZAR_COMPRA + ". Realizar compra\n" +
-			VERARTCONMENOSSTOCK + ". Ver articulos saludables\n" +
+			VERARTSALUDABLE + ". Ver articulos saludables\n" +
 			VERARTMASCARO + ". Ver el articulo mas caro\n" +
 			VERARTCONMENOSSTOCK + ". Ver los articulos con menos stock que 10\n" +
 			SALIR + ". Salir\nElije una de las opciones: "));
@@ -45,6 +45,11 @@ public class GestorAlmacenApp {
 				break;
 			case VERARTSALUDABLE:
 				JOptionPane.showMessageDialog(null, "Opcion de ver articulos saludable seleccionado");
+				for(Articulo articulo:almacen.articulos) {
+					if(articulo.saludable()) {
+						JOptionPane.showMessageDialog(null, "Saludable: \n" + articulo);
+					}
+				}
 				
 				break;
 			case VERARTMASCARO:

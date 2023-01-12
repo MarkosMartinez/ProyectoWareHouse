@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 public class Almacen {
 	
 	public Almacen() {}
@@ -26,7 +28,6 @@ public class Almacen {
 				Refresco refresco = new Refresco(linea[0], linea[1], linea[2], linea[3], Integer.parseInt(linea[4]), Double.parseDouble(linea[5]), Integer.parseInt(linea[6]), linea[7], Boolean.parseBoolean(linea[8]), Boolean.parseBoolean(linea[9]), Integer.parseInt(linea[10]));	
 				articulos.add(refresco);
 				refresco.visualizarArticulo();
-				//JOptionPane.showMessageDialog(null, "Code del refresco" + refresco.getCode() + " Nombre del refresco: " + refresco.getName());
 			}else if(linea[0].toLowerCase().equals("vino")) {
 				Vino vino = new Vino(linea[0], linea[1], linea[2], linea[3], Integer.parseInt(linea[4]), Double.parseDouble(linea[5]), Integer.parseInt(linea[6]), linea[7], linea[8], Integer.parseInt(linea[9]), linea[10], Double.parseDouble(linea[11])); 
 				articulos.add(vino);
@@ -35,6 +36,8 @@ public class Almacen {
 				Cerveza cerveza = new Cerveza(linea[0], linea[1], linea[2], linea[3], Integer.parseInt(linea[4]), Double.parseDouble(linea[5]), Integer.parseInt(linea[6]), linea[7], linea[8], Double.parseDouble(linea[9]));
 				articulos.add(cerveza);
 				cerveza.visualizarArticulo();
+			}else {
+				JOptionPane.showMessageDialog(null, "Hay un error en la lista de articulos! Por favor deten el programa.");
 			}
 		}
 		scan.close();
@@ -102,8 +105,18 @@ public class Almacen {
 	}
 	
 	public Articulo articulo(String codigoProducto) {
-		
-		return null;
+		Articulo articulodevuelto = null;
+		Iterator<Articulo> it = articulos.iterator();
+		boolean encontrado = false;
+		while(it.hasNext()||encontrado == false) {
+			Articulo articulo = (Articulo) it.next();
+			if(articulo.getCode().equals(codigoProducto)) {
+				encontrado = true;
+				articulodevuelto = articulo;
+			}
+			it.next();
+		}
+		return articulodevuelto;
 	}
 	
 	public boolean disponibilidad(int cantidad, String codigoProducto) {

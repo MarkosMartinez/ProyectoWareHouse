@@ -77,8 +77,11 @@ public class Refresco extends Articulo {
 
 	@Override
 	public boolean saludable() {
-		// TODO Auto-generated method stub
-		return false;
+		boolean saludable = false;
+		if(cantidadAzucar<20) {
+			saludable=true;
+		}
+		return saludable;
 	}
 	
 
