@@ -1,6 +1,6 @@
 refresco;01;Fanta Naranja;Fanta;33;0.60;50;naranja;true;true;28
-refresco;02;Kas Limon;Kas;33;0.55;25;limon;true;true;25
+refresco;02;Kas Limon;Kas;33;0.55;6;limon;true;true;25
 vino;10;Vino tinto Lindes;Remelluri;75;15.50;29;cereza picota;Rioja;2018;tintas;14.5
-vino;11;Vino Tindo Don Simon;Don Simon;300;5;12;cereza;Rioja;2022;Tempranillo;12
-cerveza;20;Estrella Galicia Especial; Estrella Galicia;33;0.82;14;Galicia;cebada y malta;5
+vino;11;Vino Tindo Don Simon;Don Simon;300;4;8;cereza;Rioja;2022;Tempranillo;12
+cerveza;20;Estrella Galicia Especial; Estrella Galicia;33;0.82;9;Galicia;cebada y malta;5
 cerveza;21;San Miguel Especial;San Miguel;33;0.79;88;Manila;lupulo, malta y cebada;5.4

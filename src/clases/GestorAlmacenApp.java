@@ -29,7 +29,7 @@ public class GestorAlmacenApp {
 			REALIZAR_COMPRA + ". Realizar compra\n" +
 			VERARTCONMENOSSTOCK + ". Ver articulos saludables\n" +
 			VERARTMASCARO + ". Ver el articulo mas caro\n" +
-			VERARTCONMENOSSTOCK + ". Ver los articulos con menos stock\n" +
+			VERARTCONMENOSSTOCK + ". Ver los articulos con menos stock que 10\n" +
 			SALIR + ". Salir\nElije una de las opciones: "));
 
 			switch (opcion_menu) {
@@ -52,7 +52,10 @@ public class GestorAlmacenApp {
 				
 				break;
 			case VERARTCONMENOSSTOCK:
-				JOptionPane.showMessageDialog(null, "Opcion de ver el articulo con menos estock seleccionado");
+				JOptionPane.showMessageDialog(null, "Articulos con menos Stock de 10: ");
+				for (int i = 0; i < almacen.stockJusto().size(); i++) {
+					JOptionPane.showMessageDialog(null, almacen.stockJusto().get(i));
+				}
 				
 				break;
 			case SALIR:
