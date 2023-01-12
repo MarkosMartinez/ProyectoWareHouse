@@ -44,10 +44,10 @@ public class GestorAlmacenApp {
 				
 				break;
 			case VERARTSALUDABLE:
-				JOptionPane.showMessageDialog(null, "Opcion de ver articulos saludable seleccionado");
+				JOptionPane.showMessageDialog(null, "Lista de articulos saludables: ");
 				for(Articulo articulo:almacen.articulos) {
 					if(articulo.saludable()) {
-						JOptionPane.showMessageDialog(null, "Saludable: \n" + articulo);
+						JOptionPane.showMessageDialog(null, articulo);
 					}
 				}
 				
