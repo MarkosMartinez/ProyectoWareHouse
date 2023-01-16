@@ -55,11 +55,6 @@ public class GestorAlmacenApp {
                 }
                 if(!encontrado) {
                 	JOptionPane.showMessageDialog(null, "No he podido encontrar ese elemento!\n Intentalo de nuevo.");
-                }else {
-                	// Problemas al guardar el Stock en el ficherp al actualizarlo en la arrayList de articulos.
-            		/*PrintWriter writer = new PrintWriter("datos/datos.txt");
-                    writer.println(almacen.articulos);
-                writer.close();*/
                 }
 				break;
 			case VERARTSALUDABLE:
