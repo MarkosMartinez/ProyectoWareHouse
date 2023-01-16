@@ -37,7 +37,7 @@ public class Almacen {
 				articulos.add(cerveza);
 				cerveza.visualizarArticulo();
 			}else {
-				JOptionPane.showMessageDialog(null, "Hay un error en la lista de articulos! Por favor deten el programa.");
+				JOptionPane.showMessageDialog(null, "Hay un error en la lista de articulos! Por favor finaliza el programa.");
 			}
 		}
 		scan.close();
@@ -94,10 +94,10 @@ public class Almacen {
 		return stock;
 	}
 	
-	public ArrayList<Articulo> stockJusto(){
+	public ArrayList<Articulo> stockJusto(int cantidad){
 		ArrayList<Articulo> stockJusto = new ArrayList<Articulo>();
 		for (Articulo articulos : articulos) {
-			if(articulos.getStock()<10) {
+			if(articulos.getStock()<cantidad) {
 				stockJusto.add(articulos);
 			}
 		}
@@ -151,5 +151,6 @@ public class Almacen {
 	public void ordenarPorStock(String orden) {
 		
 	}
+	
 
 }

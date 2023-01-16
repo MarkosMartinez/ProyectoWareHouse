@@ -1,6 +1,8 @@
 package clases;
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 import javax.swing.JOptionPane;
@@ -29,19 +31,40 @@ public class GestorAlmacenApp {
 			REALIZAR_COMPRA + ". Realizar compra\n" +
 			VERARTSALUDABLE + ". Ver articulos saludables\n" +
 			VERARTMASCARO + ". Ver el articulo mas caro\n" +
-			VERARTCONMENOSSTOCK + ". Ver los articulos con menos stock que 10\n" +
+			VERARTCONMENOSSTOCK + ". Ver los articulos con menos stock\n" +
 			SALIR + ". Salir\nElije una de las opciones: "));
 
 			switch (opcion_menu) {
 			case REALIZAR_VENTA:
 				JOptionPane.showMessageDialog(null, "Opcion de Realizar venta seleccionada");
+				//resta stock y crea factura.
+				
 				//almacen.visualizarArticulo();
 				//Preguntar que comprar: refresco, vino y cerveza. Despues mostrar los elementos de ese tipo y pedir codigo para la venta.
 
 				break;
 			case REALIZAR_COMPRA:
-				JOptionPane.showMessageDialog(null, "Opcion de Realizar compra seleccionado");
+				//suma stock
 				
+				String IDArticulo = JOptionPane.showInputDialog(null, "Escribe el ID del elemento al que le quieres subir el Stock: ");
+                int cantidad = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce la cantidad de stock a aumentar: "));
+                boolean encontrado = false;
+                int StockAnterior;
+                for(Articulo articulo:almacen.articulos) {
+                    if(articulo.getCode().equals(IDArticulo)) {
+                    	StockAnterior = articulo.getStock();
+                    	articulo.incrementarStock(cantidad);
+                    	encontrado = true;
+                    	JOptionPane.showMessageDialog(null, "Elemento aumentado: " + articulo.getName() + " a " + articulo.getStock() + " unidades!");
+                    }
+                }
+                if(!encontrado) {
+                	JOptionPane.showMessageDialog(null, "No he podido encontrar ese elemento!\n Intentalo de nuevo.");
+                }else {
+            		PrintWriter writer = new PrintWriter("datos/datos.txt");
+                    writer.println(almacen.articulos);
+                writer.close();
+                }
 				break;
 			case VERARTSALUDABLE:
 				JOptionPane.showMessageDialog(null, "Lista de articulos saludables: ");
@@ -57,9 +80,10 @@ public class GestorAlmacenApp {
 				
 				break;
 			case VERARTCONMENOSSTOCK:
-				JOptionPane.showMessageDialog(null, "Articulos con menos Stock de 10: ");
-				for (int i = 0; i < almacen.stockJusto().size(); i++) {
-					JOptionPane.showMessageDialog(null, almacen.stockJusto().get(i));
+				int cantidadStock = Integer.parseInt(JOptionPane.showInputDialog(null, "Escribe la cantidad maxima de Stock de la lista de elementos que quieres ver: "));
+				JOptionPane.showMessageDialog(null, "Articulos con menos Stock de " + cantidadStock);
+				for (int i = 0; i < almacen.stockJusto(cantidadStock).size(); i++) {
+					JOptionPane.showMessageDialog(null, almacen.stockJusto(cantidadStock).get(i));
 				}
 				
 				break;
