@@ -38,9 +38,6 @@ public class GestorAlmacenApp {
 			case REALIZAR_VENTA:
 				JOptionPane.showMessageDialog(null, "Opcion de Realizar venta seleccionada");
 				//resta stock y crea factura.
-				
-				//almacen.visualizarArticulo();
-				//Preguntar que comprar: refresco, vino y cerveza. Despues mostrar los elementos de ese tipo y pedir codigo para la venta.
 
 				break;
 			case REALIZAR_COMPRA:
@@ -49,10 +46,8 @@ public class GestorAlmacenApp {
 				String IDArticulo = JOptionPane.showInputDialog(null, "Escribe el ID del elemento al que le quieres subir el Stock: ");
                 int cantidad = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce la cantidad de stock a aumentar: "));
                 boolean encontrado = false;
-                int StockAnterior;
                 for(Articulo articulo:almacen.articulos) {
                     if(articulo.getCode().equals(IDArticulo)) {
-                    	StockAnterior = articulo.getStock();
                     	articulo.incrementarStock(cantidad);
                     	encontrado = true;
                     	JOptionPane.showMessageDialog(null, "Elemento aumentado: " + articulo.getName() + " a " + articulo.getStock() + " unidades!");
@@ -61,9 +56,10 @@ public class GestorAlmacenApp {
                 if(!encontrado) {
                 	JOptionPane.showMessageDialog(null, "No he podido encontrar ese elemento!\n Intentalo de nuevo.");
                 }else {
-            		PrintWriter writer = new PrintWriter("datos/datos.txt");
+                	// Problemas al guardar el Stock en el ficherp al actualizarlo en la arrayList de articulos.
+            		/*PrintWriter writer = new PrintWriter("datos/datos.txt");
                     writer.println(almacen.articulos);
-                writer.close();
+                writer.close();*/
                 }
 				break;
 			case VERARTSALUDABLE:
