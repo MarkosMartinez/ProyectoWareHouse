@@ -2,7 +2,10 @@ package clases;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.Scanner;
+
+import javax.swing.JOptionPane;
 
 public class Factura {
 
@@ -58,12 +61,37 @@ public class Factura {
 	
 	
 	
-	public void addLinea() {
-		
+	public void addLinea(LineaFactura lineaFactura) {
+		Iterator<LineaFactura> lineas=lineaFacturas.iterator();
+		boolean existe = false;
+		while(lineas.hasNext() && existe == false) {
+			LineaFactura facturas = (LineaFactura) lineas.next();
+			if(facturas.equals(lineaFactura)) {
+				JOptionPane.showMessageDialog(null, "La factura ya esta en la lista");
+				existe = true;
+			}
+			if(lineas.hasNext()) {
+				lineas.next();
+			}
+			
+		}
+		if(!existe){
+			lineaFacturas.add(lineaFactura);
+		}
 	}
 	
 	public void eliminarLinea(int numeroLinea) {
-		
+		Iterator<LineaFactura> lineas=lineaFacturas.iterator();
+		boolean existe = false;
+		while(lineas.hasNext() && existe == false) {
+			LineaFactura facturas = (LineaFactura) lineas.next();
+			if(facturas.getNumero() == numeroLinea) {
+				JOptionPane.showMessageDialog(null, "Lineas eliminadas!");
+				lineas.remove();
+				existe = true;
+			}
+			lineas.next();
+		}
 	}
 	
 	public double precioTotal() {
