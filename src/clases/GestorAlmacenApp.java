@@ -3,13 +3,15 @@ package clases;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
 public class GestorAlmacenApp {
-	public void run() throws FileNotFoundException {
-	
+	public void run() throws FileNotFoundException, ParseException {
 
 		final int REALIZAR_VENTA = 1;
 		final int REALIZAR_COMPRA = 2;
@@ -37,12 +39,31 @@ public class GestorAlmacenApp {
 			switch (opcion_menu) {
 			case REALIZAR_VENTA:
 				JOptionPane.showMessageDialog(null, "Opcion de Realizar venta seleccionada");
-				//resta stock y crea factura.
-
-				break;
-			case REALIZAR_COMPRA:
-				//suma stock
+				boolean maslineas = true;
+				int numLinea = 1;
 				
+				SimpleDateFormat formatoFecha= new SimpleDateFormat("dd-MM-yyyy");
+				int numFact = Integer.parseInt(JOptionPane.showInputDialog(null, "Escribe el numero de la factura: "));
+				String nombreEmpresaFact = JOptionPane.showInputDialog(null, "Escribe el nombre de la empresa: ");
+				String fechaFactSinFormato = JOptionPane.showInputDialog(null, "Escribe la fecha de la factura: ");
+				Date fechaFact = formatoFecha.parse(fechaFactSinFormato);
+				String conceptoFact = JOptionPane.showInputDialog(null, "Escribe el concepto de la factura: ");
+				
+				Factura factura = new Factura(numFact, nombreEmpresaFact, fechaFact, conceptoFact);
+				
+				do {
+					//Aqui estara el codigo para ir creando las lineas de la factura.
+					
+					
+					
+					String masLineasString = JOptionPane.showInputDialog(null, "Quieres seguir añadiendo lineas? (s/n): ");
+					if(masLineasString.toLowerCase().charAt(0) == 'N')
+						maslineas = false;
+					numLinea++;
+				}while(maslineas == true);
+				
+				break;
+			case REALIZAR_COMPRA:	
 				String IDArticulo = JOptionPane.showInputDialog(null, "Escribe el ID del elemento al que le quieres subir el Stock: ");
                 int cantidad = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce la cantidad de stock a aumentar: "));
                 boolean encontrado = false;
