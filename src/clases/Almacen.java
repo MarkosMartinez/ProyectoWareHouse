@@ -120,8 +120,20 @@ public class Almacen {
 	}
 	
 	public boolean disponibilidad(int cantidad, String codigoProducto) {
-		
-		return false;
+		boolean disponible = false;
+		boolean encontrado = false;
+		Iterator<Articulo> here = articulos.iterator();
+		while(here.hasNext() && !encontrado) {
+			Articulo articulo = (Articulo) here.next();
+			if(articulo.getCode().equals(codigoProducto) && articulo.getStock() > cantidad) {
+				disponible = true;
+				encontrado = true;
+			}
+			if(here.hasNext()) {
+				here.next();
+			}
+		}
+		return disponible;
 	}
 
 	public ArrayList<Articulo> equivalente(Articulo articulo){

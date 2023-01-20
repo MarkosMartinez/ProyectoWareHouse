@@ -1,5 +1,8 @@
 package clases;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -94,16 +97,38 @@ public class Factura {
 	}
 	
 	public double precioTotal() {
-
-		return 0;
+		double precioTotal=0.0;
+		for(LineaFactura linea:lineaFacturas) {
+			precioTotal=precioTotal+linea.precioTotal();
+		}
+		return precioTotal;
 	}
 	
 	public void mostrarEnPantalla() {
-		//Mostrar la factura
+		JOptionPane.showMessageDialog(null, "Numero: " + this.numero + "\nNombre de la empresa: " + this.nombreEmpresa + "\n Fecha: " + this.fecha + "\n Concepto: " + this.concepto);
+		for(LineaFactura linea:lineaFacturas) {
+			JOptionPane.showMessageDialog(null, linea.toString());
+		}
+		
 	}
 	
-	public void guardarEnFichero() {
-			
+	public void guardarEnFichero() throws FileNotFoundException{
+		SimpleDateFormat date=new SimpleDateFormat("dd-MM-yyyy");
+		String fichero=numero+"_"+date.format(fecha)+"_factura.txt";
+		PrintWriter write=new PrintWriter("Facturas/"+fichero);
+		write.println("Factura: \n IVA: "+IVA+", Numero: "+this.numero+", Nombre de la empresa: "+this.nombreEmpresa+", Fecha: "+date.format(fecha)+", Concepto: "+this.concepto + "\n");
+		for(LineaFactura fact:lineaFacturas) {
+			write.println(fact.formatoFichero());
 		}
+		write.close();
+		
+	}
+	
+
+	@Override
+	public String toString() {
+		return "Factura:\n Numero: " + numero + "\nNombre de la Empresa: " + nombreEmpresa + "\nFecha: " + fecha + "\nConcepto: "
+				+ concepto + "\n Linea: " + lineaFacturas;
+	}
 	
 }

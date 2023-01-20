@@ -8,8 +8,6 @@ public abstract class Articulo {
 	private double precio;
 	private int stock;
 	private String tipo;
-	
-	//protected boolean saludable;
 		
 public Articulo() {
 	
@@ -23,7 +21,6 @@ public Articulo() {
 		this.capacidadBotella = capacidadBotella;
 		this.precio = precio;
 		this.stock = stock;
-		//saludable = esSaludable();
 	}
 
 	

@@ -1,11 +1,10 @@
 package clases;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.Scanner;
 
 import javax.swing.JOptionPane;
@@ -38,29 +37,34 @@ public class GestorAlmacenApp {
 
 			switch (opcion_menu) {
 			case REALIZAR_VENTA:
-				JOptionPane.showMessageDialog(null, "Opcion de Realizar venta seleccionada");
 				boolean maslineas = true;
 				int numLinea = 1;
 				
 				SimpleDateFormat formatoFecha= new SimpleDateFormat("dd-MM-yyyy");
 				int numFact = Integer.parseInt(JOptionPane.showInputDialog(null, "Escribe el numero de la factura: "));
 				String nombreEmpresaFact = JOptionPane.showInputDialog(null, "Escribe el nombre de la empresa: ");
-				String fechaFactSinFormato = JOptionPane.showInputDialog(null, "Escribe la fecha de la factura: ");
+				String fechaFactSinFormato = JOptionPane.showInputDialog(null, "Escribe la fecha de la factura (dd-MM-yyyy): ");
 				Date fechaFact = formatoFecha.parse(fechaFactSinFormato);
 				String conceptoFact = JOptionPane.showInputDialog(null, "Escribe el concepto de la factura: ");
 				
 				Factura factura = new Factura(numFact, nombreEmpresaFact, fechaFact, conceptoFact);
 				
+				String masLineasString = "";
 				do {
-					//Aqui estara el codigo para ir creando las lineas de la factura.
-					
-					
-					
-					String masLineasString = JOptionPane.showInputDialog(null, "Quieres seguir añadiendo lineas? (s/n): ");
-					if(masLineasString.toLowerCase().charAt(0) == 'N')
-						maslineas = false;
+					anadirLinea(numLinea,factura,scan,almacen);
+					masLineasString = JOptionPane.showInputDialog(null, "Quieres seguir añadiendo lineas? (s/n): ");
 					numLinea++;
-				}while(maslineas == true);
+				}while(!masLineasString.toUpperCase().equals("N"));
+				JOptionPane.showMessageDialog(null, "Mostrando la factura: ");
+				factura.mostrarEnPantalla();
+				masLineasString = JOptionPane.showInputDialog(null, "Quieres guardar la factura? (s/n)");
+				if(masLineasString.toLowerCase().equals("s")) {
+					factura.guardarEnFichero();
+					JOptionPane.showMessageDialog(null, "Factura guardada.");
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Gracias por la compra :)");
+				}
 				
 				break;
 			case REALIZAR_COMPRA:	
@@ -110,4 +114,63 @@ public class GestorAlmacenApp {
 		
 		scan.close();
 	}
+	
+	
+	private static void anadirLinea(int numLinea,Factura fact,Scanner sc,Almacen almacen) {
+		int cantidad = 0;
+		LineaFactura linea = new LineaFactura();
+		boolean encontrado = false;
+		Articulo articulo = null;
+		int id;
+		
+		Cerveza cerveza = new Cerveza();
+		Vino vino = new Vino();
+		Refresco refresco = new Refresco();
+		
+		
+		Iterator<Articulo> it = almacen.articulos.iterator();
+		linea.setNumero(numLinea);
+		id = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce el ID del articulo: "));
+		while(it.hasNext() && !encontrado) {
+			articulo = (Articulo) it.next();
+			//System.out.println("Codigos M/S: " + id + " - " + articulo.getCode());
+			if(id == Integer.parseInt(articulo.getCode())) {
+				encontrado = true;
+				if(articulo instanceof Refresco) {
+					refresco = (Refresco) articulo;
+					linea.setArticulo(refresco);
+				}
+				else if(articulo instanceof Vino) {
+					vino = (Vino) articulo;
+					linea.setArticulo(vino);
+				}
+				else if(articulo instanceof Cerveza) {
+					cerveza = (Cerveza)articulo;
+					linea.setArticulo(cerveza);
+				}
+			}
+			if(it.hasNext()){
+				it.next();
+			}
+		}
+		if(!encontrado) {
+			JOptionPane.showMessageDialog(null, "No se ha encontrado el articulo q buscas");
+		}else {
+			cantidad = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce la cantidad que quieres comprar: "));
+			if(almacen.disponibilidad(cantidad, articulo.getCode())) {
+				linea.setCantidad(cantidad);
+				}
+			else if(!almacen.disponibilidad(cantidad, articulo.getCode())) {
+				JOptionPane.showMessageDialog(null, "No queda stock!");
+			}
+			else if(articulo.getStock()>0 && articulo.getStock()<cantidad){
+				linea.setCantidad(articulo.getStock());
+				JOptionPane.showMessageDialog(null, "No hay tanto stock pero te daremos lo que nos queda (" + articulo.getStock() + ").");
+				articulo.setStock(0);
+			}
+		}
+		fact.addLinea(linea);	
+	}
+	
+	
 }

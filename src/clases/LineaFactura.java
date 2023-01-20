@@ -45,4 +45,10 @@ public class LineaFactura {
 		total = cantidad * articulo.getPrecio();
 		return total;
 	}
+	
+	public String formatoFichero() {
+		String formato=this.numero+";"+this.articulo.getName()+";"+this.cantidad;
+		return formato;
+	}
+	
 }
