@@ -37,7 +37,6 @@ public class GestorAlmacenApp {
 
 			switch (opcion_menu) {
 			case REALIZAR_VENTA:
-				boolean maslineas = true;
 				int numLinea = 1;
 				
 				SimpleDateFormat formatoFecha= new SimpleDateFormat("dd-MM-yyyy");
